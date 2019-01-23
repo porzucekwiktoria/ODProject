@@ -1,0 +1,104 @@
+﻿<Window x:Class="OD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="797.912">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF9E80"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FAFAFA"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF8A65"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF8A65"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FF6E40"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF6E40"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="108,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Height="18"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0.333,-1.333" >
+        <Grid  HorizontalAlignment="Left" Height="342" Margin="247,57,0,0" VerticalAlignment="Top" Width="296" Background="#FFFBE9E7">
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,21,0,0" TextWrapping="Wrap" Text="GODZINY" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,111,0,0" TextWrapping="Wrap" Text="ATRAKCJE" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"><Run Text="L"/><Run Text="EKCJE"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,51,0,0" TextWrapping="Wrap" Text="GRUPY" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"><Run Text="L"/><Run Text="EKCJE"/><Run Text=" "/><Run Text="-"/><Run Text=" "/><Run Text="J.ANG"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"><Run Text="GRUPY"/><Run Text=" "/><Run Text="-"/><Run Text=" "/><Run Text="J.ANG"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,171,0,0" TextWrapping="Wrap" Text="KONSERWATORSKIE" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,141,0,0" TextWrapping="Wrap" Text="URODZINY" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"/>
+            <TextBox x:Name="hours" HorizontalAlignment="Left" Height="25" Margin="185,23,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" BorderBrush="#FFFFAB91" Background="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="groups" HorizontalAlignment="Left" Height="25" Margin="185,53,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" Background="#FFFFAB91" BorderBrush="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="englessons" HorizontalAlignment="Left" Height="25" Margin="185,233,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" BorderBrush="#FFFFAB91" Background="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="enggroups" HorizontalAlignment="Left" Height="25" Margin="185,203,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" Background="#FFFFAB91" BorderBrush="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="additional" HorizontalAlignment="Left" Height="25" Margin="185,173,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" BorderBrush="#FFFFAB91" Background="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="birthdays" HorizontalAlignment="Left" Height="25" Margin="185,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" Background="#FFFFAB91" BorderBrush="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="attractions" HorizontalAlignment="Left" Height="25" Margin="185,113,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" Background="#FFFFAB91" BorderBrush="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBox x:Name="lessons" HorizontalAlignment="Left" Height="25" Margin="185,83,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" Background="#FFFFAB91" BorderBrush="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Right" FontSize="16"><Run Text="URODZINY"/><Run Text=" "/><Run Text="-"/><Run Text=" "/><Run Text="J.ANG"/></TextBlock>
+            <TextBox x:Name="engbirthdays" HorizontalAlignment="Left" Height="25" Margin="185,263,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" FontFamily="Arial" FontSize="16" TextAlignment="Center" BorderBrush="#FFFFAB91" Background="#FFFFAB91" Foreground="#FFFBF7F7"/>
+            <Button Content="PRZELICZ" HorizontalAlignment="Right" Height="42" Margin="0,300,0,0" VerticalAlignment="Top" Width="296" FontFamily="Rubik" BorderBrush="White" Foreground="#FFFAF1F0" FontSize="14" BorderThickness="0,5,0,0" Background="#FFFFAB91" Style="{DynamicResource ButtonStyle2}"/>
+
+        </Grid>
+        <Image Opacity="0.2
+               " HorizontalAlignment="Left" Height="419" Margin="22,9,0,-7" VerticalAlignment="Top" Width="219" Source="ODZ.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.049"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="" HorizontalAlignment="Left" Height="42" Margin="247,10,0,0" VerticalAlignment="Top" Width="296" Background="#FFFFAB91"/>
+
+
+    </Grid>
+</Window>
